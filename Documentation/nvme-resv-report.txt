@@ -20,10 +20,11 @@ The Reservation Report command returns a Reservation Status data structure
 to host memory that describes the registration and reservation status
 of a namespace.
 
-The size of the Reservation Status data structure is a function of the
-number of controllers in the NVM Subsystem that are associated with
-hosts that are registrants of the namespace (i.e., there is a Registered
-Controller data structure for each such controller).
+For a non-dispersed namespace, the size of the Reservation Status data
+structure depends on the number of registrants of the namespace. Each
+registrant is represented by a Registrant or Registrant Extended data
+structure, including a registrant with no associated controller. Such a
+registrant is reported with a Controller ID (CNTLID) of FFFFh.
 
 That size is not known in advance, so the transfer is sized automatically:
 the fixed-size header of the structure is read first, and the structure
