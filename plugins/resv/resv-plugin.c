@@ -293,7 +293,7 @@ static int resv_report(int argc, char **argv, struct command *acmd, struct plugi
 	const char *desc = "Returns Reservation Status data\n"
 		"structure describing any existing reservations on and the\n"
 		"status of a given namespace. Namespace Reservation Status\n"
-		"depends on the number of controllers registered for that namespace.";
+		"depends on the number of registrants reported for that namespace.";
 	const char *numd = "number of dwords to transfer";
 	const char *eds = "request extended data structure";
 
@@ -365,7 +365,7 @@ static int resv_report(int argc, char **argv, struct command *acmd, struct plugi
 	 * been read, so fetch the header first and repeat the command with
 	 * a buffer sized for the count it reports. Sizing the transfer up
 	 * front instead would truncate the report on a namespace with many
-	 * registered controllers: one page holds only 63 registrants when
+	 * registrants: one page holds only 63 registrants when
 	 * the extended data structure is in use. An explicit --numd is
 	 * honoured as given and skips the second pass.
 	 */
