@@ -28,8 +28,8 @@ Controller ID (CNTLID) of FFFFh.
 
 That size is not known in advance, so the transfer is sized automatically:
 the fixed-size header of the structure is read first, and the structure
-is then read again with a buffer large enough to hold every registrant the
-namespace reports. Pass '--numd' to transfer a fixed length instead.
+is then read again with a buffer sized for the registrant count returned by
+the first read. Pass '--numd' to transfer a fixed length instead.
 
 The bare 'nvme resv-report' form (without a space) still works as a deprecated
 alias and will be removed in a future major version. New scripts should
